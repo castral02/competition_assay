@@ -105,6 +105,10 @@ python outputs.py -file /path/to/alphafold/summary/json/file  # For AF3
 
 AlphaFold2 workflows require a `.pickle` file instead of JSON.
 
+➡️ Example [AF3 output file](examples/wdr5_foxk2_human_af3_ex.csv)
+
+➡️ Example [AF2 output file](examples/wdr5_foxk2_human_af2_ex.csv)
+
 ### Dependencies
 ```bash
 json
