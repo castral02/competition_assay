@@ -4,7 +4,7 @@ This repository contains Python code for a computational competition assay that 
 
 ## About
 
-This code supports the findings in the paper **Hierarchical Small Molecule Inhibition of MYST Acetyltransferases** ([Chen et al., 2025]()). In our chemoproteomic experiments, we identified a new candidate member of the MYST KAT complexes: **FOXK2**. To explore FOXK2's potential role in these complexes, we developed a computational competitive assay for high-throughput discovery of protein-protein interactions.
+This code supports the findings in the paper ___________. In our chemoproteomic experiments, we identified a new candidate member of the MYST KAT complexes: **FOXK2**. To explore FOXK2's potential role in these complexes, we developed a computational competitive assay for high-throughput discovery of protein-protein interactions.
 
 ## AlphaPulldown Workflow
 
