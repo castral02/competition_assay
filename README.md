@@ -7,7 +7,7 @@ This code is a supplement to the research in the paper **Hierarchical small mole
 ## AlphaPulldown Workflow
 We implemented the [AlphaPulldown Workflow](https://academic.oup.com/bioinformatics/article/39/1/btac749/6839971) with the attachment of calculating the LIA and LIS which has been modified by the Enhanced Protein-Protein Interaction Discovery via AlphaFold-Multimer ([Kim et al., 2024](https://www.biorxiv.org/content/10.1101/2024.02.19.580970v1)) paper. 
 
-We ran our AlphaPulldowns off the NIH HPC Biowulf Cluster. We used a ColabFold Search to find MSAs and used AlphaPulldown 0.30.7 to find the mpDockQ/pDockQ score. To look at how the folder should be organized, [click here](alphapulldown_materials/FOXK2_ex)
+We ran our AlphaPulldowns off the NIH HPC Biowulf Cluster. We used a ColabFold Search to find MSAs and used AlphaPulldown 0.30.7 to find the mpDockQ/pDockQ score. To look at how the folder should be organized, [click here](alphapulldown_materials/FOXK2_ex).
 
 ### How to run on the Biowulf cluster:
 
