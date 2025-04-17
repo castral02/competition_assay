@@ -70,13 +70,18 @@ We wanted to understand what residues are in contact between the bait and the ca
 
 ```bash
 git clone https://github.com/castral02/competition_assay
-cd code/surface_interface
-python3 competition_assay.py -csv_path=/path/to/csv/file -name=Protein
+cd code/interface_resiudes
+python outputs.py -file /path/to/alphafold/summary/json/file #this is for AF3
 ```
+
+AF2 requires the pickle file. 
 
 ### Dependencies 
 ```bash
-absl-py
+json
+pickle
+biopython
+scipy
 ```
 
 ## Declaration of Generative AI Usage
