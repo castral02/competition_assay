@@ -101,9 +101,9 @@ The [output CSV](examples/output_competition_assay_ex.csv) contains:
 - Rank
 
 Example:
-| Job     | mpDockQ/pDockQ | lis_score | ... | Composite_Score  | Rank |
-|---------|----------------|-----------|-----|------------------|------|
-| FOXK2   | 0.74           | 0.12      | ... | 2.45             | 1    |
+| Job     |...| mpDockQ/pDockQ| lis_score | ... | Composite_Score  | Rank |
+|---------|---|---------------|-----------|-----|------------------|------|
+| FOXK2   |...|0.74           | 0.12      | ... | 2.45             | 1    |
 
 ---
 
