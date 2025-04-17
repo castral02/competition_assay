@@ -1,9 +1,3 @@
-Your README is clear, informative, and gives a solid walkthrough of the competition assay and AlphaPulldown workflow. With just a few tweaks for grammar, clarity, and consistency, it can read even more professionally while retaining its scientific and practical usefulness.
-
-Here’s an edited version with comments folded into the improvements:
-
----
-
 # Competition Assay
 
 This repository contains Python code for a simple scoring method designed to identify highly interactive proteins using the AlphaPulldown pipeline.
@@ -136,7 +130,3 @@ This project utilized OpenAI's ChatGPT to assist in generating Python code, docu
 - Kim AR, Hu Y, Comjean A, Rodiger J, Mohr SE, Perrimon N. *Enhanced Protein-Protein Interaction Discovery via AlphaFold-Multimer*. **bioRxiv** (2024). [Paper Link](https://www.biorxiv.org/content/10.1101/2024.02.19.580970v1)
 
 > This work utilized the computational resources of the [NIH HPC Biowulf cluster](https://hpc.nih.gov).
-
----
-
-Let me know if you'd like a badge section (e.g., Python version, license), a visual summary, or installation via `pip` or `conda` if applicable!
