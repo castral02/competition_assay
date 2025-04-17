@@ -57,7 +57,24 @@ cd code
 python3 competition_assay.py -csv_path=/path/to/csv/file -name=Protein
 ```
 
-## Dependencies 
+### Dependencies 
+```bash
+absl-py
+```
+
+## Exploring Interface 
+We wanted to understand what residues are in contact between the bait and the candidates. We developed two types of code to explore both AlphaFold2 and AlphaFold3 materials. 
+
+### How to run: 
+**Installation**
+
+```bash
+git clone https://github.com/castral02/competition_assay
+cd code/surface_interface
+python3 competition_assay.py -csv_path=/path/to/csv/file -name=Protein
+```
+
+### Dependencies 
 ```bash
 absl-py
 ```
