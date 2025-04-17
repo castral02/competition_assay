@@ -9,9 +9,9 @@ We implemented the [AlphaPulldown Workflow](https://academic.oup.com/bioinformat
 
 We ran our AlphaPulldowns off the NIH HPC Biowulf Cluster. We used a ColabFold Search to find MSAs and used AlphaPulldown 0.30.7 to find the mpDockQ/pDockQ score. To look at how the folder should be organized, [click here](alphapulldown_materials/FOXK2_ex)
 
-***How to run on the Biowulf cluster:***
+### How to run on the Biowulf cluster:
 
-### ColabFold Search
+***ColabFold Search***
 ```bash
 sinteractive --mem=128g --cpus-per-task=16 --gres=lscratch:100
 module load colabfold alphapulldown/0.30.7
@@ -20,7 +20,7 @@ create_individual_features.py --fasta_paths=bait.fasta,candidate.fasta --output_
 ```
 
 
-### AlphaPulldown
+***AlphaPulldown***
 ```bash
 sinteractive --mem=150g -c8 --gres=lscratch:50,gpu:a100:1 --time=3-12:00:00
 module load alphapulldown/0.30.7
@@ -30,7 +30,9 @@ run_get_good_pae.sh --output_dir pulldown_model --cutoff=50
 
 To look at the sbatch files, [click here](alphapulldown_materials/sbatch_ex).
 
+### How to find LIA/LIS:
 To find LIA/LIS, look at this [code](https://github.com/castral02/frag_af/blob/main/pipeline/lia_lis.py).
+
 ***How to run:***
 ```bash
 python3 lia_lis.py -output_dir=/path/to/AlphaPulldown/output/folders
