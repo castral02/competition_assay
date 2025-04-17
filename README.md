@@ -45,7 +45,12 @@ run_get_good_pae.sh --output_dir pulldown_model --cutoff=50
 
 ### How to Compute LIA/LIS Scores
 
-We used the following [script](https://github.com/castral02/frag_af/blob/main/pipeline/lia_lis.py) to compute LIA and LIS values.
+The input CSV must contain the following columns:
+- `average lia score`
+- `lis_score`
+- `mpDockQ/pDockQ`
+
+These are computed using AlphaPulldown and the `lia_lis.py` script from [frag_af](https://github.com/castral02/frag_af).
 
 ```bash
 python3 lia_lis.py -output_dir=/path/to/AlphaPulldown/output/folders
@@ -86,7 +91,19 @@ python3 competition_assay.py -csv_path=/path/to/csv/file -name=Protein
 ### Dependencies
 ```bash
 absl-py
+pandas
 ```
+
+The [output CSV](examples/output_competition_assay_ex.csv) contains:
+- Original input columns
+- Normalized values for each metric
+- Composite_Score
+- Rank
+
+Example:
+| Job     | mpDockQ/pDockQ | lis_score | ... | Composite_Score  | Rank |
+|---------|----------------|-----------|-----|------------------|------|
+| FOXK2   | 0.74           | 0.12      | ... | 2.45             | 1    |
 
 ---
 
@@ -115,6 +132,9 @@ json
 pickle
 biopython
 scipy
+pandas
+absl-py
+numpy
 ```
 
 ---
