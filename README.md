@@ -1,6 +1,6 @@
 # Competition Assay
 
-This repository contains Python code for a simple scoring method designed to identify highly interactive proteins using the AlphaPulldown pipeline.
+This repository contains Python code for a computational competition assay that integrates AlphaPulldown-derived scores to rank candidate interactors based on predicted binding quality.
 
 ## About
 
@@ -64,13 +64,13 @@ python3 lia_lis.py -output_dir=/path/to/AlphaPulldown/output/folders
 
 ### Developing Metrics
 
-Previous research has explored a multitude of AlphaFold-based metrics for understanding protein-protein interactions. Our goal was to develop a unified score incorporating multiple metrics, without bias toward a single one.
+Previous research has explored a multitude of AlphaFold-based metrics for understanding protein-protein interactions. Our goal was to develop a unified interaction score that integrates multiple structural metrics, normalized and weighted to reduce bias toward any single predictor.
 
 We focused on two key docking scores:
 - [mpDockQ/pDockQ](https://www.nature.com/articles/s41467-022-33729-4)
 - [LIA/LIS](https://www.biorxiv.org/content/10.1101/2024.02.19.580970v1)
 
-We applied threshold-based filtering to these scores, and assigned a composite score based on the number of passed filters, with normalized summation.
+We applied threshold-based filtering to LIA, LIS, and mpDockQ scores. A composite score was then calculated by scaling a normalized sum of these metrics according to the number of filters passed, emphasizing high-confidence interactions.
 
 ➡️ Full workflow illustrated below:
 
