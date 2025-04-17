@@ -9,7 +9,6 @@ import os
 
 FLAGS = flags.FLAGS
 flags.DEFINE_string('name', None, 'Name of the bait to name spreadsheet')
-flags.DEFINE_string('excel_path', None, 'Excel spreadsheet from AlphaFold')
 flags.DEFINE_string('csv_path', None, 'CSV spreadsheet from AlphaFold')
 
 def calculate_k(row):
@@ -25,7 +24,6 @@ def calculate_k(row):
 
 def main(argv):
     #load data
-    excel_path= FLAGS.excel_path
     csv_path= FLAGS.csv_path
     name = FLAGS.name
     current_directory = os.path.dirname(os.path.abspath(__file__))
@@ -36,42 +34,34 @@ def main(argv):
     output_file = os.path.join(current_directory, new_directory_name,f"{name}.csv")
 
 
-    excel_data=pd.read_excel(excel_path)
     csv_data=pd.read_csv(csv_path)
-
-    columns = ['average lia score', 'lis_score', 'jobs']
-
-    data_excel = excel_data[columns]
-
-    #put the csv and excel together in the same dataframe
-    merged_df = pd.merge(csv_data, data_excel, on='jobs', how='inner')  # Change 'how' as needed
 
     #filter metrics
     lia_threshold = 1610
     lis_threshold = 0.073
     mpdock_threshold = 0.175
 
-    merged_df['Passed_LIA'] = merged_df['average lia score'] >= lia_threshold
-    merged_df['Passed_LIS'] = merged_df['lis_score'] >= lis_threshold
-    merged_df['Passed_mpdockq'] = merged_df['mpDockQ/pDockQ'] >= mpdock_threshold
+    csv_data['Passed_LIA'] = csv_data['average lia score'] >= lia_threshold
+    csv_data['Passed_LIS'] = csv_data['lis_score'] >= lis_threshold
+    csv_data['Passed_mpdockq'] = csv_data['mpDockQ/pDockQ'] >= mpdock_threshold
 
     #grab weight 
-    merged_df['k'] = merged_df.apply(calculate_k, axis=1)
-    merged_df.loc[merged_df['k'] == 0, 'Composite_Score'] = 0
+    csv_data['k'] = csv_data.apply(calculate_k, axis=1)
+    csv_data.loc[csv_data['k'] == 0, 'Composite_Score'] = 0
 
     #normalizing score -> min/max
     metrics = ['lis_score', 'average lia score', 'mpDockQ/pDockQ']
     for metric in metrics:
-        merged_df[f'Normalized_{metric}'] = (
-            (merged_df[metric] - merged_df[metric].min()) / (merged_df[metric].max() - merged_df[metric].min())
+        csv_data[f'Normalized_{metric}'] = (
+            (csv_data[metric] - csv_data[metric].min()) / (csv_data[metric].max() - csv_data[metric].min())
         )
     
     #composite score
-    merged_df['Composite_Score'] = merged_df['k'] * (
-    merged_df['Normalized_lis_score'] + merged_df['Normalized_average lia score'] + merged_df['Normalized_mpDockQ/pDockQ'])
+    csv_data['Composite_Score'] = csv_data['k'] * (
+    csv_data['Normalized_lis_score'] + csv_data['Normalized_average lia score'] + csv_data['Normalized_mpDockQ/pDockQ'])
 
     #adding Rank score as a column
-    data = merged_df.sort_values(by='Composite_Score', ascending=False)
+    data = csv_data.sort_values(by='Composite_Score', ascending=False)
     data['Rank'] = range(1, len(data) + 1)
 
     #creating a new csv file ranking the order of the jobs 
