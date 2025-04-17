@@ -58,7 +58,9 @@ python3 competition_assay.py -csv_path=/path/to/csv/file -name=Protein
 ```
 
 ## Dependencies 
-
+```bash
+absl-py
+```
 
 ## Declaration of Generative AI Usage
 This project utilized OpenAI's ChatGPT to assist in generating Python code, documentation, or other textual content.
