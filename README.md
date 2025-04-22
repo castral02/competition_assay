@@ -70,7 +70,7 @@ We focused on two key docking scores:
 - [mpDockQ/pDockQ](https://www.nature.com/articles/s41467-022-33729-4)
 - [LIA/LIS](https://www.biorxiv.org/content/10.1101/2024.02.19.580970v1)
 
-We assed each interaction by filtering each metric discretely to asses the confidence and accuracy of each binding. Minimum acceptable thresholds were 1610 (LIA), 0.073 (LIS), and 0.175 (mpDockQ/pDocKQ). In a binary fashion, metrics were assessed as pass or no pass. 
+We assed each interaction by filtering each metric discretely to assess the confidence and accuracy of each binding. Minimum acceptable thresholds were 1610 (LIA), 0.073 (LIS), and 0.175 (mpDockQ/pDocKQ). In a binary fashion, metrics were assessed as pass or no pass. 
 
 To quantify these binary assessments, we introduced a weighted constant (k). If the interaction passed all three thresholds, the weight was assigned 1.0; if the interaction passed two out of three, the weighted was assigned 0.75; if the interaction passed one out of three, the weight was assigned 0.5; and lastly, if the interaction failed all three, we could assume that the binding prediction is inaccurate equating the weight to zero. 
 
