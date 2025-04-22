@@ -114,7 +114,9 @@ Example:
 
 ## Exploring Interface Contacts
 
-To understand which residues are in contact between bait and candidate proteins, we developed two scripts compatible with AlphaFold2 and AlphaFold3 outputs.
+AlphaFold2: To approximate distances that are under 8Å between two residues, we calculated Euclidean Distance using Sci-Py’s Distance Matrix Module. From the pickle file, we grabbed the alpha carbon’s coordinate of each residue of the two proteins to determine the middle of the residue. From there, we looped through each coordinate calculating the distance and filtering out every interaction that is greater than 8Å. Relevant metrics, including plDDT (predicted local distance difference test; residue confidence scores) and PAE (predicted alignment error; positional error scores) scores, along with residue identifies, were exported to a CSV file. We determined which residues are considered highly interacting areas with distances less than 6 Å and PAE score < 25 (Cock et al., 2009). 
+
+AlphaFold3: Rather than approximating distance, AlphaFold 3 created a scoring system called contact_probs (Abramson et al., 2024). We extracted contact_probs from the summary json file coming out the AlphaFold3 server. From there we grabbed the contact_probs greater than 0.1. To determine which residues are considered highly interacting areas, we compared AlphaFold2 distal approximations to find regions of overlap. 
 
 ### How to Run
 
@@ -152,9 +154,13 @@ This project utilized OpenAI's ChatGPT to assist in generating Python code, docu
 
 ## References
 
-- Bertoline, Letícia M. F., et al. “Before and after AlphaFold2: An Overview of Protein Structure Prediction.” Frontiers in Bioinformatics, vol. Volume 3-2023, 2023. [Paper Link](https://doi.org/10.3389/fbinf.2023.1120370)
+- Abramson, J., Adler, J., Dunger, J. et al. *Accurate structure prediction of biomolecular interactions with AlphaFold 3*. **Nature**, 630, 493–500 (2024). [Paper Link](https://doi.org/10.1038/s41586-024-07487-w)
+
+- Bertoline, Letícia M. F., et al. *Before and after AlphaFold2: An Overview of Protein Structure Prediction*. **Frontiers in Bioinformatics**, 3, (2023). [Paper Link](https://doi.org/10.3389/fbinf.2023.1120370)
 
 - Bryant, P., Pozzati, G., Zhu, W. et al. *Predicting the structure of large protein complexes using AlphaFold and Monte Carlo tree search*. **Nat Commun**, 13, 6028 (2022). [Paper Link](https://doi.org/10.1038/s41467-022-33729-4)
+
+- Cock, P.J.A. et al. *Biopython: freely available Python tools for computational molecular biology and bioinformatics*. **Bioinformatics**, 25, 1422-1423, (2009). [Paper Link](https://doi.org/10.1093/bioinformatics/btp163)
 
 - Dingquan Yu, Grzegorz Chojnowski, Maria Rosenthal, Jan Kosinski. *AlphaPulldown—a Python package for protein–protein interaction screens using AlphaFold-Multimer*, **Bioinformatics**, 39(1), 2023. [Paper Link](https://doi.org/10.1093/bioinformatics/btac749)
 
