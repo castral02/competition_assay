@@ -11,7 +11,7 @@ This code supports the findings in the paper ___________. In our chemoproteomic 
 
 We implemented the [AlphaPulldown Workflow](https://academic.oup.com/bioinformatics/article/39/1/btac749/6839971), and integrated the calculation of LIA and LIS scores, as described in the *Enhanced Protein-Protein Interaction Discovery via AlphaFold-Multimer* paper ([Kim et al., 2024](https://www.biorxiv.org/content/10.1101/2024.02.19.580970v1)).
 
-We executed the AlphaPulldown v0.30.7 workflow on the NIH HPC Biowulf Cluster. MSAs were generated via ColabFold v1.5.5.
+We executed the AlphaPulldown v0.30.7 workflow on the NIH HPC Biowulf Cluster. Multiple sequence alignments were generated via ColabFold v1.5.5.
 
 To view folder structure examples, [click here](alphapulldown_materials/FOXK2_ex).
 
