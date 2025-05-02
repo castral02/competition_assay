@@ -5,7 +5,7 @@ This repository contains Python code and examples for a computational interactio
 
 ## About
 
-This code supports the findings in the paper ___________. In our chemoproteomic experiments, we identified a new candidate member of the MYST KAT complexes: **FOXK2**. To explore FOXK2's potential role in these complexes, we developed a computational interaction screening assay to understand FOXK2's ability to interact with the MYST complexes. 
+This code supports the findings in the paper [(Chen et al., 2024)](https://www.biorxiv.org/content/10.1101/2025.04.25.650653v1). In our chemoproteomic experiments, we identified a new candidate member of the MYST KAT complexes: **FOXK2**. To explore FOXK2's potential role in these complexes, we developed a computational interaction screening assay to understand FOXK2's ability to interact with the MYST complexes. 
 
 ## AlphaPulldown Workflow
 
